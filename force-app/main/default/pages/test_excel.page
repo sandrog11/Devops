@@ -1,0 +1,89 @@
+<apex:page standardController="Opportunity" readOnly="true" standardStylesheets="false" contentType="application/vnd.ms-excel#Data_{!opportunity.Name}_{!TODAY()}.xls">
+
+    <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+              xmlns:o="urn:schemas-microsoft-com:office:office"
+              xmlns:x="urn:schemas-microsoft-com:office:excel"
+              xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+              xmlns:html="http://www.w3.org/TR/REC-html40">
+        <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+            <Author></Author>
+            <LastAuthor></LastAuthor>
+            <Company></Company>
+            <Version>1</Version>
+        </DocumentProperties>
+
+        <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+            <WindowHeight>16000</WindowHeight>
+            <WindowWidth>20480</WindowWidth>
+            <WindowTopX>400</WindowTopX>
+            <WindowTopY>400</WindowTopY>
+            <ProtectStructure>False</ProtectStructure>
+            <ProtectWindows>False</ProtectWindows>
+        </ExcelWorkbook>
+        <Styles>
+            <Style ss:ID="Default" ss:Name="Normal">
+                <Alignment ss:Vertical="Bottom"/>
+                <Borders/>
+                <Font/>
+                <Interior/>
+                <NumberFormat/>
+                <Protection/>
+            </Style>
+            <Style ss:ID="s01">
+                <Alignment ss:Vertical="Bottom"/>
+                <Font ss:Size="12" ss:Bold="1"/>
+                <Interior ss:Color="#e1ebe4" ss:Pattern="Solid"/>
+            </Style>
+
+        </Styles>
+
+        <Worksheet ss:Name="Opportunity Data">
+            <Table ss:ExpandedColumnCount="50" ss:ExpandedRowCount="35" x:FullColumns="1"
+                   x:FullRows="1" ss:DefaultColumnWidth="85">
+
+                <Column ss:AutoFitWidth="0" ss:Width="124"/>
+                <Column ss:AutoFitWidth="0" ss:Width="124"/>
+                <Column ss:AutoFitWidth="0" ss:Width="124"/>
+                <Column ss:AutoFitWidth="0" ss:Width="124"/>
+                <Column ss:AutoFitWidth="0" ss:Width="124"/>
+                <Row ss:Height="16">
+                    <Cell ss:StyleID="s01"><Data ss:Type="String">Name</Data></Cell>
+                    <Cell ss:StyleID="s01"><Data ss:Type="String">Amount </Data></Cell>
+                    <Cell ss:StyleID="s01"><Data ss:Type="String">StageName</Data></Cell>
+                    <Cell ss:StyleID="s01"><Data ss:Type="String">CloseDate</Data></Cell>
+
+                </Row>
+                <!--<apex:repeat value="{!oppWrapper}" var="opp">
+                    <Row ss:Height="16">
+                        <Cell ><Data ss:Type="String">{!opp.Name}</Data></Cell>
+                        <Cell ><Data ss:Type="Number">{!opp.Amount}</Data></Cell>
+                        <Cell ><Data ss:Type="String">{!opp.StageName }</Data></Cell>
+                        <Cell ><Data ss:Type="String">
+                                  <apex:outputText value="{0, date, MM'/'dd'/'yyyy}">
+                                    <apex:param value="{!opp.CloseDate}" />
+                                  </apex:outputText>
+                               </Data>
+                        </Cell>
+                    </Row>
+                    </apex:repeat> -->
+
+            </Table>
+            <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+                <PageLayoutZoom>0</PageLayoutZoom>
+                <Selected/>
+                <FreezePanes/>
+                <FrozenNoSplit/>
+                <SplitHorizontal>1</SplitHorizontal>
+                <TopRowBottomPane>1</TopRowBottomPane>
+                <ActivePane>2</ActivePane>
+                <Panes>
+                    <Pane>
+                        <Number>3</Number>
+                    </Pane>
+                </Panes>
+                <ProtectObjects>False</ProtectObjects>
+                <ProtectScenarios>False</ProtectScenarios>
+            </WorksheetOptions>
+        </Worksheet>
+    </Workbook>
+</apex:page>

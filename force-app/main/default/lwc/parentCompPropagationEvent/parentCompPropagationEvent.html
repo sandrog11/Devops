@@ -1,0 +1,7 @@
+<template>
+    <div class="slds-m-around_medium" style="background-color: deeppink;">
+        <span style="color: blue;">From Child Component => {message}</span>
+        <!--handle event in parent component-->
+        <c-child-comp-propagation-event class="slds-m-around_medium" onmycustomevent={handleCustomEvent}></c-child-comp-propagation-event>
+    </div>
+</template>

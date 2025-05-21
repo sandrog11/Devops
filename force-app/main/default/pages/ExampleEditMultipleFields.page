@@ -1,0 +1,15 @@
+<apex:page lightningStylesheets="true" standardController="Opportunity" recordSetVar="opps">
+  <apex:form >
+      <apex:pageblock >
+          <apex:pageblockButtons >
+              <apex:commandButton value="Salva" action="{!save}"/>
+          </apex:pageblockButtons>
+          <apex:pageblockTable value="{!opps}" var="o">
+              <apex:column value="{!o.Name}"/>
+              <apex:column headerValue="Stage">
+                  <apex:inputfield value="{!o.StageName}" />
+              </apex:column>
+          </apex:pageblockTable>
+      </apex:pageblock>
+  </apex:form>
+</apex:page>

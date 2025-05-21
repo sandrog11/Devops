@@ -1,0 +1,30 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="RetrieveStudent">
+    <aura:attribute name="check" type="boolean" default="false"/>
+    <aura:attribute name="boolmostra" type="boolean" default="false"/>
+    <aura:attribute name="Studente" type="Studente__c"
+                    default="{'Nome__c':'',
+                             'Cognome__c':'',
+                             'Data_di_nascita__c':'',
+                             'Telefono__c':''}"/>
+    <aura:attribute name="recordId" type="String"/>
+    <!--<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>-->
+    <lightning:card>
+    	<div style="width:400px;">
+        	<h1><b>Quick Student CREATE</b></h1>
+            
+            <br/>
+            
+            <lightning:input required="true" aura:id="studentform" type="text" max="18" label="Nome: " value="{!v.Studente.Nome__c}"/>
+            <lightning:input required="true" aura:id="studentform" type="text"  max="18" label="Cognome: " value="{!v.Studente.Cognome__c}"/>
+            <lightning:input required="true" aura:id="studentform" type="date" label="Data di Nascita: " value="{!v.Studente.Data_di_nascita__c}"/>
+            <lightning:input required="true" aura:id="studentform" pattern="[0-9]{10}" label="Telefono: " value="{!v.Studente.Telefono__c}"/>
+            <lightning:input aura:id="checkid" type="checkbox" label="Acconsento al trattamento dei dati" checked="{!v.check}"/>
+            <lightning:button variant="base" label="Mostra i termini e le condizioni"
+                                  onclick="{!c.viewmostra}" />
+            <lightning:button label="Submit" onclick="{!c.handleclick}"/>
+        </div>
+        <aura:if isTrue="{!v.boolmostra}">
+        	<c:MostraTermini/>
+        </aura:if>
+    </lightning:card>
+</aura:component>

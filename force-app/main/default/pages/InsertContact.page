@@ -1,0 +1,15 @@
+<apex:page standardController="Contact" lightningStylesheets="true">
+    <apex:form >
+    <apex:pageBlock title="Insert Contact">
+		<apex:pageBlockSection columns="1">
+            <apex:inputField value="{!contact.FirstName}"/>
+            <apex:inputField value="{!contact.LastName}"/>
+            <apex:inputField value="{!contact.email}"/>
+        </apex:pageBlockSection>      
+        <div align="center">
+                <apex:commandButton value="Salva" action="{!save}"/>
+            </div>
+        	
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

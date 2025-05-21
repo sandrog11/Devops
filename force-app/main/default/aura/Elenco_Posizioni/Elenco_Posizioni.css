@@ -1,0 +1,28 @@
+.THIS {}
+.THIS.c-container {
+    margin: 10px 0 20px 0;
+}
+.THIS .custom-box {
+    text-align: center;
+    padding: 2rem;
+}
+.THIS.c-container {
+    margin: 10px 0 20px 0;
+}
+.THIS .page-section {
+    border: solid 1px #ccc;
+    padding: 1rem;
+  border-radius: 25px;
+}
+.THIS .page-header,
+.THIS .page-footer {
+    height: 90px;
+    background: #99cbff;
+}
+.THIS .page-main {
+    background: #f8f8f8;
+}
+.THIS .page-left,
+.THIS .page-right {
+    background: #f0efef;
+}

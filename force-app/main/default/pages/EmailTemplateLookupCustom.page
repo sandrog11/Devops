@@ -1,0 +1,27 @@
+<apex:page >
+    <script>
+    function openWindow() {
+        var url = "/apex/EmailTemplateList?caller={!$CurrentPage.Name}";
+        var windowName = "selectEmailTemplate";
+        var windowFeatures = "width=800,height=600";
+        window.open(url, windowName, windowFeatures);
+    }
+    
+    // Funzione chiamata dalla seconda pagina per impostare il valore dell'input text
+    function setInputValue(value) {
+        document.getElementById('templateName').value = value;
+    }
+    </script>
+    <span>
+        <input type="text" id="templateName" style="vertical-align: middle" />
+        
+        <a href="#" onclick="openWindow(); return false;">
+            <img src="/img/s.gif" alt="Hiring Manager Lookup (New Window)" class="lookupIconOn"
+                 onblur="this.className = 'lookupIcon';"
+                 onfocus="this.className = 'lookupIconOn';"
+                 onmouseout="this.className = 'lookupIcon';this.className = 'lookupIcon';"
+                 onmouseover="this.className = 'lookupIconOn';this.className = 'lookupIconOn';"
+                 title="Scegli Email Template"/>
+        </a>
+    </span>
+</apex:page>

@@ -1,0 +1,5 @@
+<aura:event type="APPLICATION" description="Event template">
+    <aura:attribute name="area" type="String"/>
+    <aura:attribute name="tipo" type="String"/>
+    <aura:attribute name="flag" type="boolean" default="false"/>
+</aura:event>

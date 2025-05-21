@@ -1,0 +1,14 @@
+<apex:page controller="CreateEditAccount" >
+  <apex:form >
+      <apex:pageblock >
+          <apex:pageblockButtons >
+              <apex:commandButton value="Salva" action="{!save}"/>
+          </apex:pageblockButtons>
+          <apex:pageblockSection columns="1">
+              <apex:inputfield value="{!account.name}"/>
+              <apex:inputfield value="{!account.industry}"/>
+              <apex:inputfield value="{!account.phone}"/>
+          </apex:pageblockSection>
+      </apex:pageblock>
+  </apex:form>
+</apex:page>

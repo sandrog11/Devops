@@ -1,0 +1,9 @@
+<template>
+    <div class="slds-box" style="background-color: lavender;">
+        <lightning-record-form object-api-name={caseObject}
+            fields={caseFields}
+            columns="2"
+            onsuccess={handleCaseCreated}>    
+        </lightning-record-form>
+    </div>
+</template>

@@ -1,0 +1,36 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="RetrieveClient">
+    <aura:attribute name="Contact" type="Contact" default="{'FirstName':'',
+                             'LastName':'',
+                             'Phone':'',
+                             'Email':'', 'MailingCity':'', 'MailingCountry':'', 'MailingStreet':'', 'MailingState':''}"/>
+    <aura:attribute name="recordId" type="String"/>
+    
+    
+    
+		<lightning:card  >
+            <h1 class="slds-text-align_center"  style="font-size:26px"><b>Create Client</b></h1>
+            <br/>
+            <lightning:layout class="slds-grid_align-center" >
+            <lightning:layoutItem padding="around-small">
+                <div class="header-column">
+             <lightning:input label="First Name" placeholder="Nome" required="true" aura:id="clientform" type="text" max="18" value="{!v.Contact.FirstName}"/>
+            <lightning:input label="Last Name" placeholder="Cognome" required="true" aura:id="clientform" type="text" max="18" value="{!v.Contact.LastName}"/>
+            <lightning:input required="true" placeholder="Telefono" aura:id="clientform" pattern="[0-9]{10}" label="Phone" value="{!v.Contact.Phone}"/>
+            <lightning:input required="true" placeholder="email@esempio.it" aura:id="clientform" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" label="Email" value="{!v.Contact.Email}"/>
+                </div>
+            </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small">
+                <div class="header-column">
+                    <lightning:input required="true" placeholder="Città" aura:id="clientform" type="text" min="2" label="Città" value="{!v.Contact.MailingCity}"/>
+            <lightning:input required="true" placeholder="Provincia" aura:id="clientform" type="text" label="Provincia" value="{!v.Contact.MailingState}"/>
+            <lightning:input required="true" placeholder="Nazionalità" aura:id="clientform" type="text" label="Nazionalità" value="{!v.Contact.MailingCountry}"/>
+            <lightning:input required="true" placeholder="Indirizzo" aura:id="clientform" type="text" label="Indirizzo" value="{!v.Contact.MailingStreet}"/>
+                </div>
+            </lightning:layoutItem>
+                </lightning:layout>
+            <br/><div class="slds-form-element buttons slds-text-align_center">
+    			<lightning:button class="slds-button slds-button--brand"  variant="brand" onclick="{!c.handleclick}" label="Submit"/>
+			</div>
+            <!--<lightning:button label="Submit" onclick="{!c.handleclick}"/>-->
+                </lightning:card>    
+</aura:component>

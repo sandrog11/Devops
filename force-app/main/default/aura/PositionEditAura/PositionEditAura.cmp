@@ -1,0 +1,26 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="RetrievePosition">
+    <aura:attribute name="Position" type="Position__c"
+                    default="{'Name': '',
+                             'Open_Date__c':'',
+                             'Close_Date__c':'',
+                             'Min_Pay__c':'',
+                             'Max_Pay__c':''}"/>
+    <aura:attribute name="recordId" type="String"/>
+    <!--<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>-->
+    <lightning:card>
+    	<div style="width:400px;">
+        	<h1><b>Quick Position Create</b></h1>
+            
+            <br/>
+            
+            <lightning:input type="text" aura:id="positionform" label="Position Name: " value="{!v.Position.Name}" placeholder="Inserisci il nome della posizione" required="true" max="10"/>
+            <lightning:input type="date" aura:id="positionform" label="Open Date: " value="{!v.Position.Open_Date__c}" placeholder="Open Date" required="true"/>
+            <lightning:input type="date" aura:id="positionform" label="Close Date: " value="{!v.Position.Close_Date__c}" placeholder="Close Date" required="true"/>
+            <lightning:input aura:id="positionform" placeholder="0" label="Min Pay: " value="{!v.Position.Min_Pay__c}" required="true" pattern="[0-9]{5}"/>
+            <lightning:input aura:id="positionform" placeholder="0" label="Max Pay: " value="{!v.Position.Max_Pay__c}" required="true" pattern="[0-9]{5}"/>
+            
+            <lightning:button label="Submit" onclick="{!c.handleclick}"/>
+        </div>
+    </lightning:card>
+	
+</aura:component>

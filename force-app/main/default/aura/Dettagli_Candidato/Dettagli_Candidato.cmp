@@ -1,0 +1,24 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="Elenco_Posizioni">
+    <aura:attribute name="candidatedetails" type="Candidate__c"/>
+    <aura:attribute name="checkdetail" type="boolean" default="false"/>
+    
+    <!--Situazione 3 -> Componente con la lista dei dettagli di un candidato riceve l'evento -> aura handler-->
+    <aura:handler name ="cmpEventC" event="c:Evento_Candidate" action="{!c.handleComponentEvent}"/>
+    
+    <div style="margin-left:10px;">
+        
+        <aura:if isTrue="{!v.checkdetail}">
+            <lightning:card>
+                <p style="text-align:center;font-size:20px; color:blue"> {!v.candidatedetails.First_Name__c +' '+ v.candidatedetails.Last_Name__c}</p>
+                
+                <p style="margin-top:10px;text-align:center; font-weight:bold;">Telefono: {!v.candidatedetails.Phone__c}</p>
+                <p style="margin-top:10px;text-align:center; font-weight:bold;">Email: {!v.candidatedetails.Email__c}</p> 
+                <p style="margin-top:10px;text-align:center; font-weight:bold;">Indirizzo: {!v.candidatedetails.Address_Candidate__c}</p>
+            </lightning:card>
+        </aura:if>
+        
+    </div>
+    <br/>
+    <c:Elenco_Candidati/>
+    <br/>
+</aura:component>

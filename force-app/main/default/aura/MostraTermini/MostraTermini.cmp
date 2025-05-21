@@ -1,0 +1,5 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <lightning:card>
+        I Termini e le Condizioni d'Uso possono essere adottati per qualsiasi tipologia di sito web o di applicazione, come e-commerce, blog, siti di annunci, siti informativi e di notizie, forum, servizi online, giochi, etc.
+    </lightning:card>
+</aura:component>

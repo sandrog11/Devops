@@ -1,0 +1,9 @@
+<template>
+    <div class="slds-grid slds-gutters">
+            <template for:each={allCourseDetailInfo} for:item="course">
+                <c-enroll-course key={course.courseName} course-detail-info={course} class="slds-col">
+                    <div slot="footer">Questo è il footer slot nominativo</div>
+                </c-enroll-course>
+            </template>
+    </div>
+</template>

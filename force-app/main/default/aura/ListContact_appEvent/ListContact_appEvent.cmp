@@ -1,0 +1,13 @@
+<aura:component controller="ListContact" access="global" >
+    <aura:attribute name="ContactList" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="c:searchKey_appEvent" action="{!c.showFiltered}"/>
+    <aura:registerEvent name="appEvent" type="c:recordId_appEvent"/>
+    
+    <lightning:card title="Contact List">
+        <aura:iteration items="{!v.ContactList}" var="contact">
+            <br/>
+            <lightning:button variant="base" label="{!contact.Name}" value="{!contact.Id}" onclick="{!c.fireAppEvent}"/>
+        </aura:iteration>
+    </lightning:card>
+</aura:component>

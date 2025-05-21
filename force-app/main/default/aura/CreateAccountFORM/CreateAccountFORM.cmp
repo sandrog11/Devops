@@ -1,0 +1,25 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <div class="slds-box slds-box_small">
+    <lightning:layout horizontalAlign="center">
+                <div class="slds-grid slds-grid_pull-padded-medium">
+  					<div class="slds-col slds-p-horizontal_medium">
+                        <lightning:input aura:id="nome" label="Account Name" onchange="{!c.changevalue}"/>
+                        <lightning:input aura:id="numero" label="Account Number" onchange="{!c.changevalue}"/>
+                        <lightning:input aura:id="site" label="Account Site" onchange="{!c.changevalue}"/>
+  					</div>
+  					<div class="slds-col slds-p-horizontal_medium">
+    				<lightning:input aura:id="phone" label="Phone" onchange="{!c.changevalue}"/>
+                    <lightning:input aura:id="fax" label="Fax" onchange="{!c.changevalue}"/> 
+                    <lightning:input aura:id="website" label="Website" onchange="{!c.changevalue}"/> 
+  					</div>
+				</div>
+        </lightning:layout>
+        <lightning:layout horizontalAlign="center">
+            <lightning:layoutItem padding="around-small">
+            	<lightning:button aura:id="saveid" variant="brand" label="Salva" disabled="true"
+                                  onclick="{!c.salva}"/>
+            </lightning:layoutItem>
+        </lightning:layout>    
+    </div>
+    
+</aura:component>

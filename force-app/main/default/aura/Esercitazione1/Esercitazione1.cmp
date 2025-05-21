@@ -1,0 +1,36 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<p>Hello world!</p>
+    <ul>
+        <li class="red">Rosso</li>
+    	<li class="blue">Blu</li>
+    	<li class="green">Verde</li>
+    </ul>
+    
+    <aura:attribute name="nome" type="String" default="all"/>
+    <aura:attribute name = "message" type="String"/>
+	<p>Hello {!v.nome}!</p>
+    
+    <lightning:input type="date" label="Insert a date"
+                     aura:id ="dataid"/>
+    
+    <aura:attribute name="colori" type="List" default="black, red, blue"/>
+    <lightning:select aura:id="selectid" name="select1" label="Scegli un colore">
+    	<option value="">Choose one...</option>
+    	<aura:iteration items="{!v.colori}" var="color">
+        	<option  value="{!color}" text="{!color}"></option>
+        </aura:iteration>
+    </lightning:select>
+    
+    <aura:attribute name="check" type="boolean" default="false"/>
+    <lightning:input onchange="{!c.changecheched}" aura:id="checkid" type="checkbox" label="Acconsento al trattamento dei dati" checked="{!v.check}"/>
+    <aura:if isTrue="{!v.check}">
+    <aura:set attribute="else">Hai dimenticato di accettare il consenso
+    </aura:set>
+    </aura:if>
+    
+    <lightning:button label="Submit" iconName="utility:groups" title="Neutral Action"
+                      onclick="{!c.submit}"/>
+    <lightning:button label="Open Message" title="Neutral Action"
+                      onclick="{!c.message}"/> {!v.message}
+    
+</aura:component>

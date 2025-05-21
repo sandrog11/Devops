@@ -1,0 +1,5 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:registerEvent name="appEvent" type="c:searchKey_appEvent"/>
+    <aura:attribute name="keysearch" type="String"/>
+    <lightning:input value="{!v.keysearch}" onchange="{!c.fireEvent}"/>
+</aura:component>

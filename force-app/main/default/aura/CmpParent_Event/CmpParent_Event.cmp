@@ -1,0 +1,21 @@
+<aura:component >
+	
+    <aura:attribute name="MsgFromNotifier" type="String"/>
+    <aura:attribute name="eventCount" type="Integer" default="0"/>
+    
+    <aura:handler name="cmpEvent" event="c:ComponentEvent_1"
+                  action="{!c.handleComponentEvent}"/>
+    
+    <h1>
+    	Hai selezionato il tasto
+    </h1>
+    
+    <p> {!v.MsgFromNotifier}</p>
+    <!--p> {!v.label}</p>-->
+    <!--<p> {!v.eventCount}</p>-->
+    
+    
+    <hr/>
+    
+    <c:CmpChild_Event/>
+</aura:component>

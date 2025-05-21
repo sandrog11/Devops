@@ -1,0 +1,18 @@
+<apex:page standardController="Position__c" lightningStylesheets="true">
+    <apex:form >
+        <apex:pageBlock title="Position">
+            <apex:pageBlockSection title="New Position" columns="2">
+            	<apex:inputField value="{!Position__c.name}" />
+                <apex:inputField value="{!Position__c.Functional_Area__c}" />
+            	<apex:inputField value="{!Position__c.Type__c}" />
+                <apex:inputField value="{!Position__c.Status__c}" />
+                <apex:inputField value="{!Position__c.Min_Pay__c}" />
+                <apex:inputField value="{!Position__c.Max_Pay__c}" />
+                <apex:inputField value="{!Position__c.Open_Date__c}" />
+                <apex:inputField value="{!Position__c.Close_Data__c}" />
+            </apex:pageBlockSection>
+            <apex:commandButton value="Save" action="{!save}"/>
+        </apex:pageBlock>
+            
+    </apex:form>
+</apex:page>

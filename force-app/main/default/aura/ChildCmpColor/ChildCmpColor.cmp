@@ -1,0 +1,10 @@
+<aura:component >
+	<!--Registro l'evento-->
+    <aura:registerEvent name="cmpEvent" type="c:ComponentEventColor"/>
+    
+    
+    <h1>Component Event Notifier</h1>
+    <lightning:button class="button1" label="Blue button" onclick="{!c.fireComponentEvent}"/>
+    <lightning:button class="button2" label="Red button" onclick="{!c.fireComponentEvent}"/>
+    <lightning:button class="button3" label="Green button" onclick="{!c.fireComponentEvent}"/>
+</aura:component>

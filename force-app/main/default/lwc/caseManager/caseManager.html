@@ -1,0 +1,40 @@
+<template>
+    <div class="slds-box slds-p-around_small" style="background-color: burlywood;">
+        <lightning-input label="Enter Case Number"
+        placeholder="Case Number" value={searchCaseNumber} onchange={caseNumberChange}></lightning-input>
+        <template if:true={cases}>
+            <div class="slds-grid slds-wrap slds-gutters">
+                <template for:each={cases} for:item="eachCase">
+                    <div class="slds-col slds-size_1-of-3 slds-p-around_small" key={eachCase.Id}>
+                        <lightning-card title={eachCase.CaseNumber}>
+                            <div slot="actions">
+                                <template if:true={eachCase.IsClosed}>
+                                    <span style="color:green; font-weight: bold;"> Already closed</span>
+                                </template>
+                                <template if:false={eachCase.IsClosed}>
+                                    <lightning-button variant="success" name={eachCase.Id} value={eachCase.Id} label="Close Case" onclick={passCaseToClose}>
+                                    </lightning-button>
+                                    <lightning-button class="slds-p-around_small" variant="success" name={eachCase.Id} value={eachCase.Id} label="Add Comment" onclick={newCommentAdd}>
+                                    </lightning-button>
+                                </template>
+                            </div>
+                            <p class="slds-p-horizontal_small">
+                                <span style="color: brown;">Description: </span>{eachCase.Description}
+                            </p>
+                            <p class="slds-p-horizontal_small">
+                                <span style="color: brown;">Status: </span>{eachCase.Status}
+                            </p>
+                            <p class="slds-p-horizontal_small">
+                                <span style="color: brown;">Priority: </span>{eachCase.Priority}
+                            </p>
+                            <p style="color: cornflowerblue;" slot="footer">
+                                {eachCase.Subject}
+                            </p>
+                        </lightning-card>
+                    </div>
+                </template>
+            </div>
+        </template>
+        <c-case-comment-manager></c-case-comment-manager>
+    </div>
+</template>

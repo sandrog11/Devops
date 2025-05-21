@@ -1,0 +1,14 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="position" type="Position__c" default="{Name:'Java', Functional_Area__c:'Information Technology', Min_Pay__c:20000, Max_Pay__c:40000}"/>
+	
+    <article class="slds-card">
+    	<div class="slds-card_body slds-card_body_inner">
+        	<p class="slds-p-horizontal_small"><b>Nome posizione: </b> {!v.position.Name}</p>
+            <p class="slds-p-horizontal_small"><b>Area: </b> {!v.position.Functional_Area__c}</p>
+            <p class="slds-p-horizontal_small"><b>Stipendio minimo: </b><lightning:formattedNumber value="{!v.position.Min_Pay__c}" style="currency"/></p>
+            <p class="slds-p-horizontal_small"><b>Stipendio massimo: </b> <lightning:formattedNumber value="{!v.position.Max_Pay__c}" style="currency"/></p>
+            <lightning:input class="slds-p-horizontal_small" type="checkbox" label="Trasferte" />
+            <lightning:button variant="brand" class="slds-p-left_small" label="OK"/>
+        </div>
+    </article>
+</aura:component>

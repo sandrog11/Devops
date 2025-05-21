@@ -1,0 +1,28 @@
+<apex:page lightningStylesheets="true">
+  <!-- Begin Default Content REMOVE THIS -->
+  <style type="text/css">
+      h1{color:red;}
+  </style>
+  <apex:tabPanel >
+      <apex:tab label="HOME">
+       <!--Messaggio di benvenuto-->
+         <h1>Benvenuto {! $User.FirstName}</h1>
+      </apex:tab>
+      <apex:tab label="REGISTRAZIONE">
+     <!-- <apex:pageblock >
+      <apex:pageBlockSection title="Page of Sign up" > -->
+          <apex:form >
+                 
+          <apex:panelGrid columns="2" >
+              	Nome<apex:inputText ></apex:inputText>
+              	Cognome<apex:inputText ></apex:inputText>
+              	Cover letter<apex:inputTextArea ></apex:inputTextArea>
+              	Attualmente impiegato <apex:inputCheckbox />
+          </apex:panelGrid>
+               </apex:form>
+  <!-- End Default Content REMOVE THIS -->
+        <!--  </apex:pageBlockSection>
+          </apex:pageblock> -->
+      </apex:tab>
+    </apex:tabPanel>
+</apex:page>

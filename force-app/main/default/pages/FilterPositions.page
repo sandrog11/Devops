@@ -1,0 +1,15 @@
+<apex:page controller="FilterPosition" lightningStylesheets="true">
+    <apex:form >
+    <apex:pageblock title="Lista Posizioni" id="positions_list">
+        <apex:pageblockTable value="{!ListPos}" var="pos">
+            <apex:column value="{!pos.Name}"/>
+            <apex:column value="{!pos.Functional_Area__c}"/>
+            <apex:column value="{!pos.Min_Pay__c}"/>
+            <apex:column value="{!pos.Max_Pay__c}"/>
+        </apex:pageblockTable>
+    </apex:pageblock>
+       <apex:commandLink action="{!All}" reRender="positions_list">Mostra tutti</apex:commandLink> <br/>
+    <apex:commandLink action="{!ListHR}" reRender="positions_list">Mostra Human Resource</apex:commandLink><br/>
+        <apex:commandLink action="{!ListIT}" reRender="positions_list">Mostra Information Technology</apex:commandLink><br/>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,14 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="RetrieveDetailPosition" >
+    <aura:attribute name="positionId" type="String"/>
+    <aura:attribute name="positiondetails" type="Position__c"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div style="margin-left:20px">
+        <p style="margin-top:10px;text-align:center; font-weight:bold; font-size:20px">NOME<br/></p><p style="text-align:center;font-size:15px"> {!v.positiondetails.Name}</p>
+        <p style="margin-top:10px;text-align:center; font-weight:bold; font-size:20px">DATA APERTURA<br/></p><p style="text-align:center;font-size:15px"><lightning:formattedDateTime value="{!v.positiondetails.Open_Date__c}"/></p>
+        <p style="margin-top:10px;text-align:center; font-weight:bold; font-size:20px">DATA CHIUSURA<br/></p><p style="text-align:center;font-size:15px"> <lightning:formattedDateTime value="{!v.positiondetails.Close_Data__c}"/></p>
+        <p style="margin-top:10px;text-align:center; font-weight:bold; font-size:20px">AREA<br/></p><p style="text-align:center;font-size:15px"> {!v.positiondetails.Functional_Area__c}</p>
+        <p style="margin-top:10px;text-align:center; font-weight:bold; font-size:20px">STIPENDIO MINIMO<br/></p><p style="text-align:center;font-size:15px"> <lightning:formattedNumber style="currency" currencyCode="EUR" value="{!v.positiondetails.Min_Pay__c}"/></p>
+        <p style="margin-top:10px;text-align:center; font-weight:bold; font-size:20px">STIPENDIO MASSIMO<br/></p><p style="text-align:center;font-size:15px"> <lightning:formattedNumber style="currency" currencyCode="EUR" value="{!v.positiondetails.Max_Pay__c}"/></p>
+    </div>
+</aura:component>

@@ -1,0 +1,41 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="Elenco_Posizioni">
+    <aura:attribute name="listPositions" type="Position__c[]"/>
+    <aura:attribute name="positionId" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!--Situazione 1 -> Componente con la lista riceve l'evento -> aura handler-->
+    <aura:handler name="cmpEvent" event="c:Evento_Filtro" action="{!c.handleComponentEvent}"/>
+    
+    <!--Registro l'evento-->
+    <!--Situazione 2 -> Componente con la lista lancia l'evento -> aura register-->
+    <aura:registerEvent name="cmpEventP" type="c:Evento_Position"/>
+    
+    <div class="c-container">
+        
+        <lightning:layoutItem padding="around-small" size="12">
+            <div class="page-section page-header">
+                <!--Componente figlio-> barra filtri-->
+                <c:Barra_Filtri/>
+            </div>
+        </lightning:layoutItem>
+        <lightning:layout multipleRows="true">
+            
+            
+            <aura:iteration items="{!v.listPositions}" var="position">
+                <div class="c-container">
+                    <lightning:layoutItem padding="around-small" size="12">
+                        <div class="page-section page-right" style="margin-left:20px">
+                            <p style="font-size:16px"><b>{!position.Name}</b></p><br/>
+                            <p><b>Area:</b>	{!position.Functional_Area__c}</p>
+                            <p><b>Tipo:</b>	{!position.Type__c}</p>
+                            <p><b>Stipendio Minimo:</b>	{!position.Min_Pay__c}</p>
+                            <p><b>Stipendio Massimo:</b> 	{!position.Max_Pay__c}</p><br/>
+                            <lightning:button variant="brand" label="Candidates" value="{!position.Id}" onclick="{!c.showCandidates}"/>
+                            <lightning:button variant="brand" label="Posting WebSite" value="{!position.Id}" onclick="{!c.showWebSites}"/>
+                        </div>
+                    </lightning:layoutItem>
+                </div>
+            </aura:iteration>
+            
+        </lightning:layout>
+    </div>
+</aura:component>

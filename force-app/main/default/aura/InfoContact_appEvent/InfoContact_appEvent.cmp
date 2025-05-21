@@ -1,0 +1,14 @@
+<aura:component controller="ListContact" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<aura:handler event="c:recordId_appEvent" action="{!c.viewDetailsContact}"/>
+    <aura:attribute name="detailsContact" type="Contact"/>
+    <lightning:card variant="standard" title="Contact" iconName="standard:contact">
+        <p class="slds-p-horizontal_small">
+            <!-- Dettagli del contatto -->
+            <strong>Name: </strong> {!v.detailsContact.Name} <br/>
+            <strong>Title: </strong> {!v.detailsContact.Title} <br/>
+            <strong>Phone: </strong> {!v.detailsContact.Phone} <br/>
+            <strong>Email: </strong> {!v.detailsContact.Email} <br/>
+            <strong>Account Name: </strong> {!v.detailsContact.Account.Name} <br/>
+        </p>
+    </lightning:card>
+</aura:component>

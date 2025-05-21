@@ -1,0 +1,24 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="messages" type="List"/>
+    <lightning:messageChannel type="SampleMessageChannel__c" aura:id="messageChannel" onMessage="{!c.messageHandler}" scope="APPLICATION"></lightning:messageChannel>
+    <lightning:card title="Message subscriber from Aura">
+        <div class="slds-p-around_small">
+            <aura:iteration items="{!v.messages}" var="message">
+                <div key="{!message.id}">
+                    {!message.from} >> {!message.value}
+                </div>
+            </aura:iteration>
+        </div>
+        <div>
+            <lightning:layout>
+                <lightning:layoutItem size="9" class="slds-m-right_medium">
+                    <lightning:input aura:id="inputbox" type="text" variant="label-hidden"></lightning:input>
+                </lightning:layoutItem>
+                <lightning:layoutItem size="3" class="slds-m-right_medium">
+                    <lightning:button label="Send" variant="brand" onclick="{!c.sendHandler}">
+                    </lightning:button>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div>
+    </lightning:card>
+</aura:component>

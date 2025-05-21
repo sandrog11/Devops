@@ -1,0 +1,13 @@
+<aura:component>
+    <aura:attribute type="Position__c" Name="Position"></aura:attribute>
+        <lightning:card  variant="Narrow"  title="Crea Position" iconName="standard:account">
+            <lightning:input class="slds-p-horizontal_small" label="Nome" type="String"/>
+            <lightning:input class="slds-p-horizontal_small" label="Open Date" type="Date"/>
+            <lightning:input class="slds-p-horizontal_small" label="Close Date" type="Date"/>
+            <lightning:input class="slds-p-horizontal_small" label="Stipendio Minimo" style="currency"/>
+        	<lightning:input class="slds-p-horizontal_small" label="Stipendio Massimo" style="currency"/>
+    		<lightning:button class="slds-m-horizontal_medium" variant="Brand" label="Salva"/>
+    </lightning:card>
+    	
+        
+</aura:component>

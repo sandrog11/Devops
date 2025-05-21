@@ -1,0 +1,15 @@
+<apex:page controller="AccountCont">
+    <apex:form >
+        <apex:pageblock title="Accounts" id="accounts_list">
+            <Apex:pageblockTable value="{!accounts}" var="acc">
+                <apex:column value="{!acc.Name}"/>
+                <apex:column value="{!acc.Type}"/>
+                <apex:column value="{!acc.Industry}"/>
+            </Apex:pageblockTable>
+        </apex:pageblock>
+        
+        <apex:commandButton value="Mostra 10 account" action="{!LimitTen}" reRender="accounts_list"/><br/>
+        <apex:commandButton value="Mostra 20 account" action="{!LimitTwenty}" reRender="accounts_list"/><br/>
+        <apex:commandButton value="Reset" action="{!backToFive}" reRender="accounts_list"/><br/>
+    </apex:form>
+</apex:page>

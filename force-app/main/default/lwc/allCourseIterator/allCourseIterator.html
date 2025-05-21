@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="AllCourseIterator">
+        <div class="slds-box">
+            <ul>
+                <template iterator:course={allCourseDetails}>
+                    <div if:true={course.first} key={course.value.courseName}  class="list-first">This is first course {course.value.courseName}</div>
+                    <li key={course.value.courseName}>
+                        This {course.value.courseName} will be completed within {course.value.courseDuration}.
+                    </li>
+                    <div if:true={course.last} key={course.value.courseName} class="list-last">This is last course {course.value.courseName}</div>
+                </template>
+            </ul>
+        </div>
+    </lightning-card>
+</template>

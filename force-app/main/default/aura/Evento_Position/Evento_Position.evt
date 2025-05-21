@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Event template">
+    <aura:attribute name="positionId" type="String"/>
+    <aura:attribute name="flag" type="boolean"/>
+</aura:event>

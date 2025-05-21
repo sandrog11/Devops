@@ -1,0 +1,21 @@
+<apex:page lightningStylesheets="true" standardController="Position__c" recordSetVar="pos">
+  <apex:form >
+      <apex:pageblock >
+          <apex:pageblockButtons >
+              <apex:commandButton value="Salva" action="{!save}"/>
+          </apex:pageblockButtons>
+          <apex:pageblockTable value="{!pos}" var="p">
+              <apex:column value="{!p.Name}"/>
+              <apex:column headerValue="MIN PAY">
+                  <apex:inputfield value="{!p.Min_Pay__c}" />
+              </apex:column>
+              <apex:column headerValue="MAX PAY">
+                  <apex:inputfield value="{!p.Max_Pay__c}" />
+              </apex:column>
+              <apex:column headerValue="STATUS">
+                  <apex:inputfield value="{!p.Status__c}" />
+              </apex:column>
+          </apex:pageblockTable>
+      </apex:pageblock>
+  </apex:form>
+</apex:page>

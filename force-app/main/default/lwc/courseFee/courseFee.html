@@ -1,0 +1,11 @@
+<template>
+    <div class="slds-box" style="width: 50%;">
+        <lightning-input type="text" label="Nome Corso" placeholder="type here..." value={courseName}></lightning-input>
+        <lightning-input type="currency" label="Tariffa" placeholder="type here..." value={courseFee} onchange={changeFee}></lightning-input>
+        <lightning-input type="number" label="Numero Studenti" placeholder="type here..." value={numberOfStudents} onchange={changeNumberOfStudents}></lightning-input>
+    </div>
+    <div class="center">
+        <lightning-button variant="brand" label="Calcola Total Fee" title="Calcola Fee" onclick={calculateTotalFee} class="slds-m-left_x-small"></lightning-button><br/>
+        <p>Total course fee: ${totalFee}</p>
+    </div>
+</template>

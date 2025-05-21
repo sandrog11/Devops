@@ -1,0 +1,9 @@
+<apex:page controller="getCandidatures">
+    <apex:pageblock title="Job Applications">
+        <apex:pageblockTable value="{!Listcand}" var="cand">
+            <apex:column value="{!cand.Position__r.Name}"/>
+            <apex:column value="{!cand.Candidate__r.First_Name__c}"/>
+            <apex:column value="{!cand.Candidate__r.Last_Name__c}"/>
+        </apex:pageblockTable>
+    </apex:pageblock>
+</apex:page>

@@ -1,0 +1,8 @@
+<aura:component >
+    <p>Enter a number:</p>
+    <ui:inputText aura:id="inputId"/>
+    
+    <lightning:button label="Submit" onclick="{!c.check}"/>
+    
+	
+</aura:component>

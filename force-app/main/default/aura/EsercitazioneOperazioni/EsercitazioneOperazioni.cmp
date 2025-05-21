@@ -1,0 +1,29 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<aura:attribute name="result" type="Integer"/>
+    <aura:attribute name="result1" type="Integer"/>
+    <!--SOMMA con onclick-->
+    <lightning:card title="Somma di numeri su event onClick">
+        <lightning:layout horizontalAlign="right">
+        	<lightning:layoutItem padding="around-small">
+                <lightning:input aura:id="firstinput" label="Inserisci un numero"/>
+                <lightning:input aura:id="secondinput" label="Inserisci un numero"/><br/>
+                <lightning:button label="Somma"
+                                  onclick="{!c.sum}"
+                                  aura:id="buttonSum"/><br/>
+               {!v.result}
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>
+	<!--SOMMA con onchange()-->
+<lightning:card title="Somma di numeri su event onchange">
+    	
+        <lightning:layout horizontalAlign="right">
+        	<lightning:layoutItem padding="around-small">
+                <lightning:input aura:id="thirdinput" label="Inserisci un numero" onchange="{!c.sumchange}"/>
+                <lightning:input aura:id="pokerinput" label="Inserisci un numero" onchange="{!c.sumchange}"/><br/>
+                <br/>
+               {!v.result1}
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>    
+</aura:component>

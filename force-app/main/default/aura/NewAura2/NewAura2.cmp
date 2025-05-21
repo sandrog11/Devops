@@ -1,0 +1,48 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <p>Welcome to component two</p><br/>
+    
+    <h2>View Positions</h2><br/><br/>
+    <aura:attribute name="position" type="Position__c" default="{Name:'Java', Max_Pay__c:40000}"/>
+    <p> Nome posizione {!v.position.Name}</p>
+    <!--FORMATTED NUMBER type-->
+    <p> Stipendio massimo: <lightning:formattedNumber value="{!v.position.Max_Pay__c}" style="currency"/> </p><br/>
+    
+    
+    <!-- Input dell'utente -->
+  	<aura:attribute name="nome" type="String"/>
+    <lightning:input type="String" required="true" name="input" value="{!v.nome}" label="Inserisci il nome"/>
+    <p>Ciao {!v.nome}!</p><br/>
+    
+    <!-- Select (picklist) statica -->
+    <lightning:select name="select1" label="How many tickets?" required="true">
+    	<option value="">choose one...</option>
+        <option value="1">one</option>
+        <option value="2">two</option>
+        <option value="3">three</option>
+    </lightning:select><br/>
+ 
+    <!--Checkbox type input-->
+    <p> Prova Checkbox</p>
+    <lightning:input type="checkbox" label="check one"/><br/>
+    <!--Iteration (loop) -->
+    <aura:attribute name="colori" type="List" default="['nero', 'rosso', 'giallo']"/>
+    
+    <lightning:select name="select1" label="Scegli un colore" required="true">
+    	<option value="">None</option>
+        <aura:iteration items="{!v.colori}" var="color">
+        	<option value="{!color}" text="{!color}"></option>
+        </aura:iteration>
+    </lightning:select> <br/>
+
+	<!--IF then Else (condizione)-->
+    <p>Prova IF </p><br/>
+    <aura:attribute name="truthy" type="boolean" default="true"/>
+    <aura:if isTrue="{!v.truthy}">TRUE
+        <aura:set attribute="else">FALSE</aura:set>
+    </aura:if><br/>
+    
+    <!--Prova button personalizzati-->
+    <br/><p>Prova button personalizzati</p>
+    <lightning:button variant="brand" label="Brand" title="Brand action" onclick="{!c.handleClick}"/>
+	    
+</aura:component>

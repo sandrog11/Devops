@@ -1,0 +1,9 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+    <!--Registro l'evento-->
+    <aura:registerEvent name="cmpEvent" type="c:ComponentEventContact"/>
+    <aura:attribute name="nameContact" type="String"/>
+    
+    
+    <lightning:input placeholder="Search Contact" value="{!v.nameContact}" onchange="{!c.fireComponentEvent}"/>
+    
+</aura:component>

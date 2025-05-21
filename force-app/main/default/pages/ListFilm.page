@@ -1,0 +1,14 @@
+<apex:page controller="getListFilm">
+  <apex:form >
+    <apex:pageblock title="Lista Film Recenti" id="positions_list">
+        <apex:pageblockTable value="{!ListFilm}" var="film">
+            <apex:column value="{!film.Name}"/>
+            <apex:column value="{!film.Regista__c}"/>
+            <apex:column value="{!film.Anno__c}"/>
+        </apex:pageblockTable>
+    </apex:pageblock>
+      <!-- <apex:commandLink action="{!All}" reRender="positions_list">Mostra tutti</apex:commandLink> <br/>
+    <apex:commandLink action="{!ListHR}" reRender="positions_list">Mostra Human Resource</apex:commandLink><br/>
+        <apex:commandLink action="{!ListIT}" reRender="positions_list">Mostra Information Technology</apex:commandLink><br/> -->
+    </apex:form>
+</apex:page>

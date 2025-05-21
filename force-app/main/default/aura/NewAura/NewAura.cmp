@@ -1,0 +1,16 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	Sono il componente
+    <div class="grey">
+        Ciao
+    </div>
+    
+    <h2>Lista di colori</h2>
+    
+    <ul>
+        <li class="red">Sono rosso</li>
+        <li class="blue">Sono blu</li>
+        <li class="yellow">Sono giallo</li>
+    </ul>
+    <p>Welcome to component one</p>
+    <c:NewAura2/>
+</aura:component>

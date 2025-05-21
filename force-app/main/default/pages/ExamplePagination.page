@@ -1,0 +1,17 @@
+<apex:page lightningStylesheets="true" standardController="Opportunity" recordSetVar="opps" >
+	<apex:pageBlock title="Pagination">
+    	<apex:form >
+        	<apex:pageBlockSection >
+            	<apex:dataList value="{!opps}" var="o">
+                    {!o.Name}
+                </apex:dataList>
+            </apex:pageBlockSection>
+            <apex:panelGrid columns="4">
+                <apex:commandLink action="{!first}">Inizio</apex:commandLink>
+            	<apex:commandLink action="{!Previous}">Indietro</apex:commandLink>
+                <apex:commandLink action="{!next}">Avanti</apex:commandLink>
+                <apex:commandLink action="{!last}">Fine</apex:commandLink>
+            </apex:panelGrid>
+        </apex:form>
+    </apex:pageBlock>
+</apex:page>

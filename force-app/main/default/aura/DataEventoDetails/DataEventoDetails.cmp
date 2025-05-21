@@ -1,0 +1,29 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="DataEventoDetails">
+	<aura:attribute name="eventoId" type="String"/>
+    <aura:attribute name="listdataevento" type="Data_Evento__c[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+        <div class="slds-align_absolute-center" style="height:5rem">
+        <h1 style="font-size:26px;"><b>{!v.listdataevento[0].Evento__r.Nome_Evento__c}</b></h1></div>
+   	<lightning:layout horizontalAlign="space" verticalAlign="center" multipleRows="true">
+        
+        <aura:iteration items="{!v.listdataevento}" var="dataeventi">
+    	<lightning:layoutItem flexibility="auto" size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="6">
+           			
+                    <span style="margin-top:10px;text-align:center; font-weight:bold; font-size:20px; margin-left:20px">Nome Evento<br/></span><span style="margin-left:30px; text-align:center;font-size:15px"> {!dataeventi.Nome__c}</span><br/>
+            <span style="margin-top:10px;text-align:center; font-weight:bold; font-size:20px; margin-left:20px">Data<br/></span><span style="text-align:center;font-size:15px; margin-left:30px"><lightning:formattedDateTime value="{!dataeventi.Data__c}" year="2-digit" month="short" day="2-digit" weekday="long"/></span><br/>
+					<span style="margin-top:10px;text-align:center; font-weight:bold; font-size:20px; margin-left:20px">Orario<br/></span><span style="margin-left:30px; text-align:center;font-size:15px"><lightning:formattedDateTime value="{!dataeventi.Orario__c}" hour="2-digit" minute="2-digit" timeZone="UTC"
+                                                                                                                                                                                                    timeZoneName="short"/></span><br/>
+            <span style="margin-top:10px;text-align:center; font-weight:bold; font-size:20px; margin-left:20px">Luogo<br/></span><span style="margin-left:30px; text-align:center;font-size:15px"> {!dataeventi.Luogo__c}</span><br/>
+            <span style="margin-top:10px;text-align:center; font-weight:bold; font-size:20px; margin-left:20px">Status<br/></span><span style="margin-left:30px; text-align:center;font-size:15px"> {!dataeventi.Status__c}</span><br/>
+        <span style="margin-top:10px;text-align:center; font-weight:bold; font-size:20px; margin-left:20px">Numero Posti disponibili<br/></span><span style="margin-left:30px; text-align:center;font-size:15px"><lightning:formattedNumber value="{!dataeventi.Posti_Totali_Disponibili__c}"/></span>
+       </lightning:layoutItem>
+        </aura:iteration>
+                
+                    
+                
+               </lightning:layout>
+  				
+                    
+    	
+</aura:component>

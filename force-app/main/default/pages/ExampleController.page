@@ -1,0 +1,16 @@
+<apex:page controller="Esempio2">
+  <apex:pageblock title="Lista di Contacts">
+      <apex:pageblockTable value="{!ListCon}" var="con">
+          <apex:column value="{!con.id}"/>
+          <apex:column value="{!con.name}"/>
+      </apex:pageblockTable>
+  </apex:pageblock>
+  
+  <apex:pageblock title="Lista di Opportunities">
+      <apex:pageblockTable value="{!ListOpp}" var="opp">
+          <apex:column value="{!opp.id}"/>
+          <apex:column value="{!opp.Name}"/>
+      </apex:pageblockTable>
+      
+  </apex:pageblock>
+</apex:page>

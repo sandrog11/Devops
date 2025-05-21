@@ -1,0 +1,20 @@
+<template>
+    <div class="slds-box" style="width: 50%;">
+        <h1 class="slds-text-heading_medium slds-m-bottom_medium">
+            Basic Calculator
+        </h1>
+            <lightning-input type="number" value={firstInput} onchange={firstInputChange} name="First Input" label="Firt Number" placeholder="Enter first number..."></lightning-input>
+            <lightning-input type="number" value={secondInput} onchange={secondInputChange} name="Second Input" label="Second Number" placeholder="Enter second number..."></lightning-input>
+                <lightning-button-group>
+                    <lightning-button class="button" variant="brand" label="Add" title="Add" onclick={sum}></lightning-button>
+                    <lightning-button class="button" variant="brand" label="Subtract" title="Subtract" onclick={subtract}></lightning-button>
+                    <lightning-button class="button" variant="brand" label="Moltiplication" title="Moltiplication" onclick={moltiplication}></lightning-button>
+                    <lightning-button class="button" variant="brand" label="Division" title="Division" onclick={division}></lightning-button>
+                </lightning-button-group>
+                <template if:true={showResult}>
+                    <div class="slds-box slds-theme_shade">
+                        <p>{totalValue}</p>
+                    </div>
+                </template>
+    </div>
+</template>

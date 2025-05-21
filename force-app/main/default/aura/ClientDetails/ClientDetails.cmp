@@ -1,0 +1,26 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="RetrieveDetailClient">
+	<aura:attribute name="clientId" type="String"/>
+    <aura:attribute name="contactdetails" type="Contact"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <lightning:layout class="slds-align_absolute-center" >
+            <lightning:layoutItem padding="around-small">
+                <div class="header-column">
+                    <p style="margin-top:10px;text-align:center; font-weight:bold; font-size:20px">Nome	</p><p style="text-align:center;font-size:15px"> {!v.contactdetails.FirstName}</p>
+        <p style="margin-top:10px;text-align:center; font-weight:bold; font-size:20px">Cognome	</p><p style="text-align:center;font-size:15px"> {!v.contactdetails.LastName}</p>
+        <p style="margin-top:10px;text-align:center; font-weight:bold; font-size:20px">Email	</p><p style="text-align:center;font-size:15px"> {!v.contactdetails.Email}</p>
+                </div>
+            </lightning:layoutItem>
+        
+        <lightning:layoutItem padding="around-small">
+                <div class="header-column">
+                    <p style="margin-top:10px;text-align:center; font-weight:bold; font-size:20px">Phone	</p><p style="text-align:center;font-size:15px"> {!v.contactdetails.Phone}</p>
+        <p style="margin-top:10px;text-align:center; font-weight:bold; font-size:20px">Quantità biglietti acquistati	</p><p style="text-align:center;font-size:15px"> {!v.contactdetails.Quantita_biglietti_acquistati__c}</p>
+        <p style="margin-top:10px;text-align:center; font-weight:bold; font-size:20px">Somma spesa	</p><p style="text-align:center;font-size:15px"> {!v.contactdetails.Somma_spesa__c}</p>
+                </div>
+            </lightning:layoutItem>
+    </lightning:layout>
+    <div style="margin-left:20px">
+        
+    </div>
+</aura:component>

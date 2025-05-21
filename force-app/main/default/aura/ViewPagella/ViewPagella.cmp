@@ -1,0 +1,9 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="ViewPagella">
+    <aura:attribute name="pagella" type="Pagella__c"/>
+    <aura:attribute name="pagellaid" type="String"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    
+    Nome : {!v.pagella.Nome_Alunno__c}
+    Voto : {!v.pagella.Voto__c}
+    
+</aura:component>

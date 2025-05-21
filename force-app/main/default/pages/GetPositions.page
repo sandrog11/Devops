@@ -1,0 +1,9 @@
+<apex:page controller="getPositions" lightningStylesheets="true">
+    <apex:pageblock title="Lista Positions">
+        <apex:pageblocktable value="{!listapos}" var="pos">
+            <apex:column value="{!pos.Name}"/>
+            <apex:column value="{!pos.Functional_Area__c}"/>
+            <apex:column value="{!pos.Type__c}"/>
+        </apex:pageblocktable>
+    </apex:pageblock>
+</apex:page>

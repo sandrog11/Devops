@@ -1,0 +1,17 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="RetrieveContact">
+	<aura:attribute name="Contact" type="Contact[]"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    
+    <aura:iteration var="contact" items="{!v.Contact}">
+        <div class="slds-box">
+        <lightning:card  variant="Narrow"  title="Contact" iconName="standard:contact">
+            First Name: {!contact.FirstName} <br/>
+       		LastName: {!contact.LastName}<br/>
+        	Phone: {!contact.Phone}<br/>
+        	Email: {!contact.Email}<br/>
+    	</lightning:card>
+        </div>    
+    </aura:iteration>
+</aura:component>

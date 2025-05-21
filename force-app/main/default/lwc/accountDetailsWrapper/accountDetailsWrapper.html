@@ -1,0 +1,16 @@
+<template>
+    <div class="slds-box">
+        <lightning-card title="Accounts wrapper Data Table LWC" icon-name="custom:custom9">
+            <div class="slds-m-around_medium">
+                <!--check se la lista accountWithContacts è full e non empty-->
+                <template if:true={accWrapperList}>
+                    <lightning-datatable
+                                    key-field="Id"
+                                    data={accWrapperList}
+                                    columns={columns}>
+                    </lightning-datatable>
+                </template>
+            </div>
+        </lightning-card>
+    </div>
+</template>

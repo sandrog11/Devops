@@ -1,0 +1,40 @@
+<template>
+    <div class="slds-box">
+        <lightning-card title="Accounts with Contacts wrapper class in LWC" icon-name="custom:custom9">
+            <div class="slds-m-around_medium">
+                <!--check se la lista accountWithContacts è full e non empty-->
+                <template if:true={accountsWithContacts}>
+                    <!--scorro la lista wrapper -->
+                    <template for:each={accountsWithContacts} for:item="accWithContacts"> <!--scorro singolo elemento della wrapper list-->
+                        <template if:true={accWithContacts.contactCount}>
+                            <lightning-badge style="color: red;" label={accWithContacts.accRecord.Name} icon-name="standard:account" key={accWithContacts.accRecord.Id}></lightning-badge>
+                                <span key={accWithContacts.accRecord.Id}>Total associated contact # {accWithContacts.contactCount} </span>
+                                    <div class="slds-grid slds-gutters" key={accWithContacts.accRecord.Id}>                       
+                                        <template for:each={accWithContacts.contactList} for:item="contact">
+                                            <div class="slds-col slds-size_1-of-3" key={contact.Id}>
+                                                <lightning-card title={contact.Name} icon-name="standard:contact">
+                                                    <p class="slds-p-horizontal_small">First Name: {contact.FirstName}</p>
+                                                    <p class="slds-p-horizontal_small">Last Name: {contact.LastName}</p>
+                                                    <p class="slds-p-horizontal_small">Phone: {contact.MobilePhone}</p>
+                                                    <!--<template>-->
+                                                        <template lwc:if={contact.Email}>
+                                                            <p slot="footer">Email: {contact.Email}</p>
+                                                        </template>
+                                                        <template lwc:else>
+                                                            <p slot="footer">Email non presente</p>
+                                                        </template>
+                                                    <!--</template>-->
+                                                </lightning-card>
+                                            </div>
+                                        </template>
+                                    </div>
+                            </template>
+                    </template>
+                </template>
+                <template if:true={error}>
+                    {error}
+                </template>
+            </div>
+        </lightning-card>
+    </div>
+</template>

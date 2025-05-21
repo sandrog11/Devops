@@ -1,0 +1,40 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="text" type="String" default="Just a string. Waiting for change."/>
+    
+    <lightning:button label="Change Button Name" onclick="{!c.handleClick}"/>
+    <lightning:button label="Second Button" onclick="{!c.handleClick}"/>
+    {!v.text}
+    <br/>
+    
+    <aura:attribute name ="livello" type="List" default="[
+                                                         {'label': 'Facile', 'value':'facile'},
+                                                         {'label': 'Medio', 'value':'medio'},
+                                                         {'label': 'Difficile', 'value':'difficile'}]"/>
+    <aura:attribute name="selectedMode" type="String"/>
+    
+    <lightning:card title="Game">
+    	<lightning:layout horizontalAlign="center">
+        <lightning:layoutItem padding="around-small">
+            <lightning:combobox
+                                label="Game Mode"
+                                variant="label-hidden"
+                                aura:id="gameMode"
+                                options="{!v.livello}"
+                                placeholder="Select Game Mode"
+                                onchange="{!c.confirm}"
+                                />
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small">
+            <lightning:button
+                                aura:id="StartNewGameButton"
+                                variant="brand"
+                              	label="Start New Game"
+                              	title="Start New Game"
+                                onclick="{!c.startGame}"
+                                />
+            </lightning:layoutItem>
+        </lightning:layout>
+        Livello selezionato: {!v.selectedMode}
+    </lightning:card>
+    
+</aura:component>

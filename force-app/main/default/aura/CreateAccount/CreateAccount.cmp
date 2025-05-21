@@ -1,0 +1,17 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="checkbool" type="boolean" default="false"/>
+    <div class="slds-box slds-box_small">
+        <lightning:layout horizontalAlign="center">
+            <lightning:layoutItem padding="around-small">
+                <p style="font-size:26px" >ACCOUNTS</p><br/>
+                <lightning:button variant="brand" label="New"
+                                  onclick="{!c.viewform}"/>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+    <aura:if isTrue="{!v.checkbool}">
+    <c:CreateAccountFORM/>
+    </aura:if>
+    
+	
+</aura:component>

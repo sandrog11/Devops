@@ -1,0 +1,18 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="ContactDetail">
+    
+    <aura:attribute name="contactdetails" type="Contact"/>
+    <aura:attribute name="contactId" type="String"/>
+    <aura:handler event="c:ContactEvent" action="{!c.getContact}" />
+    
+    <aura:if isTrue="{!v.contactdetails !=null}">
+    <div style="margin-left:20px">
+        <lightning:card variant="Narrow" title="Contact" iconName="standard:contact">
+            <p class="slds-p-horizontal_small" style="font-size:16px"><b>Nome:</b>&nbsp;&nbsp;&nbsp;{!v.contactdetails.Name}<br/></p>
+        	<p class="slds-p-horizontal_small" style="font-size:16px"><b>Titolo:</b>&nbsp;&nbsp;&nbsp;{!v.contactdetails.Title}<br/></p>
+            <p class="slds-p-horizontal_small" style="font-size:16px"><b>Email:</b>&nbsp;&nbsp;&nbsp;{!v.contactdetails.Email}<br/></p>
+            <p class="slds-p-horizontal_small" style="font-size:16px"><b>Phone:</b>&nbsp;&nbsp;&nbsp;{!v.contactdetails.Phone}<br/></p>
+            <p class="slds-p-horizontal_small" style="font-size:16px"><b>Account Name:</b>&nbsp;&nbsp;&nbsp;{!v.contactdetails.Account.Name}<br/></p>
+        </lightning:card>
+    </div>
+        </aura:if>
+</aura:component>

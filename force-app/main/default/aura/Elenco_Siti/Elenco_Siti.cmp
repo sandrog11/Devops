@@ -1,0 +1,63 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="Elenco_Posizioni">
+    <aura:attribute name="listWebSites" type="Employment_Websites__c[]"/>
+    <aura:attribute name="webSite" type="Employment_Websites__c"/>
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name="stringa" type="String" default=""/>
+    <aura:attribute name="websiteId" type="String"/>
+    <aura:attribute name="showdetail" type="boolean" default="true"/>
+    <aura:attribute name="showvuoto" type="boolean" default="false"/>
+    
+    <!--Situazione 2 -> Componente con la lista dei siti riceve l'evento -> aura handler-->
+    <aura:handler event="c:Evento_Position" action="{!c.handleComponentEvent}"/>
+    
+    <lightning:layout>
+        <div style="text-align: center;width:500px;max-width:500px;display: inline-block;">
+            <lightning:card>
+                <aura:if isTrue="{!(!v.showdetail)}">
+                    <p style="font-size:20px; color:blue; text-align:center">Siti</p>
+                    <aura:iteration items="{!v.listWebSites}" var="websites">
+                        <br/>
+                        <lightning:button class="button-sites" variant="base" value="{!websites.Id}" label="{!websites.Name}" onclick="{!c.showDetails}"/>
+                    </aura:iteration>
+                    <p style="font-size:15px; text-align:center">{!v.stringa}</p>
+                </aura:if>
+                <aura:if isTrue="{!(!v.showvuoto)}">
+                    <p style="font-size:20px; color:blue; text-align:center">Siti</p>
+                    <p style="font-size:15px; text-align:center">Clicca su Posting Websites per la posizione di interesse</p>
+                </aura:if>
+                
+            </lightning:card>
+        </div>
+        
+    </lightning:layout>
+    
+    <!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->   
+        <aura:if isTrue="{!v.isOpen}">
+            
+            <!--###### MODAL BOX Start######--> 
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- ###### MODAL BOX HEADER Start ######-->
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeModel }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 style="font-size:20px; font-weight:bold"  id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!v.webSite.Name}</h2>
+                    </header>
+                    <!--###### MODAL BOX BODY Part Start######-->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <p style="font-size:20px; text-align:center"><b>URL: </b>{!v.webSite.Web_Site__c}</p>
+                        <p style="font-size:20px; text-align:center"><b>Prezzo per post: </b><lightning:formattedNumber style="currency" currencyCode="EUR" value="{!v.webSite.Price_per_Post__c}"/></p>
+                        <p style="font-size:20px; text-align:center"><b>Numero di annunci: </b>{!v.webSite.Number_of_Annunci__c}</p>
+                        <p style="font-size:20px; text-align:center"><b>Totale Entrate: </b><lightning:formattedNumber style="currency" currencyCode="EUR" value="{!v.webSite.Totale_Entrate__c}"/></p>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+            <!--###### MODAL BOX Part END Here ######-->
+            
+        </aura:if>
+    
+</aura:component>

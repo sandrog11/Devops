@@ -1,0 +1,47 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="Elenco_Posizioni">
+    <aura:attribute name="listCandidates" type="Candidate__c[]"/>
+    <aura:attribute name="stringa" type="String" default=""/>
+    <aura:attribute name="showdetail" type="boolean" default="true"/>
+    <aura:attribute name="showvuoto" type="boolean" default="false"/>
+    <aura:attribute name="candidateId" type="String"/>
+    
+    <!--Situazione 2 -> Componente con la lista dei candidati riceve l'evento -> aura handler-->
+    <aura:handler event="c:Evento_Position" action="{!c.handleComponentEvent}"/>
+    
+    <!--Registro l'evento-->
+    <!--Situazione 3 -> Componente con la lista dei candidati lancia l'evento -> aura register-->
+    <aura:registerEvent name="cmpEventC" type="c:Evento_Candidate"/>
+    
+    
+    <lightning:layout>
+        
+        <div style="text-align: center;width:500px;max-width:500px;display: inline-block;">
+            <lightning:card>
+                <aura:if isTrue="{!(!v.showdetail)}">
+                    
+                    <p style="font-size:20px; color:blue; text-align:center">Candidati per Posizione</p>
+                    <aura:iteration items="{!v.listCandidates}" var="candidate">
+                        <br/>
+                        <div>
+                            <lightning:button class="button-candidate" variant="base" label="{!candidate.First_Name__c + ' '+ candidate.Last_Name__c}" value="{!candidate.Id}" onclick="{!c.showDetails}"/>
+                        </div>
+                    </aura:iteration>
+                    <p style="font-size:15px; text-align:center">{!v.stringa}</p>
+                </aura:if>
+                <aura:if isTrue="{!(!v.showvuoto)}">
+                    <p style="font-size:20px; color:blue; text-align:center">Candidati per Posizione</p>
+                    <br/>
+                    <p style="font-size:15px; text-align:center">Clicca su candidates per la posizione di interesse</p>
+                </aura:if>
+                
+                
+                
+            </lightning:card>
+        </div>
+        
+        
+        
+        
+    </lightning:layout>
+    
+</aura:component>

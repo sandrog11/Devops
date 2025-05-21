@@ -1,0 +1,19 @@
+<aura:component controller="AccountController" implements="force:hasRecordId">
+    
+    <aura:attribute name="accList" type="List"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	
+    <lightning:select aura:id="select"  label="Seleziona un account"
+                      onchange="{!c.handleChange}">
+    	<option value="null">None</option>
+        
+        <aura:iteration items="{!v.accList}" var="item">
+        	<option value="{!item.Id}">{!item.Name}</option>
+        </aura:iteration>
+    </lightning:select>
+    
+    Record id : {!v.recordId}
+    
+    
+</aura:component>

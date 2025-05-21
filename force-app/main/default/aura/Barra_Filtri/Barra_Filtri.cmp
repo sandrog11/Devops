@@ -1,0 +1,32 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="aree" type="String[]" default="Finance,Human Resources,Information Technology,Retail Operations,Warehousing,Miscellaneous"/>
+    <aura:attribute name="tipi" type="String[]" default="Full Time,Part Time,Intership,Contractor"/>
+    <!--<aura:attribute name="flagreset" type="boolean"/>-->
+    
+    <!--Registro l'evento-->
+    <!--Situazione 1 -> Componente con i Filtri lancia l'evento -> aura register-->
+    <aura:registerEvent name="cmpEvent" type="c:Evento_Filtro"/>
+    
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+            <lightning:select label="Choose Area" aura:id="select" name="select">
+                <option value="">-- None --</option>
+                <aura:iteration items="{!v.aree}" var="area">
+                    <option value="{!area}" text="{!area}"></option>
+                </aura:iteration>
+            </lightning:select>
+        </div>
+        <div class="slds-col">
+            <lightning:select label="Choose Type" aura:id="select1" name="select1">
+                <option value="">-- None --</option>
+                <aura:iteration items="{!v.tipi}" var="tipo">
+                    <option value="{!tipo}" text="{!tipo}"></option>
+                </aura:iteration>
+            </lightning:select>
+        </div>
+        <div class="slds-col" style="margin-top:23px;">
+            <lightning:button variant="brand" class="button1" label="Filtra" onclick="{!c.fireComponentEvent}" />
+            <lightning:button variant="brand" class="button1" label="Reset" onclick="{!c.fireComponentReset}" />
+        </div>
+    </div>
+</aura:component>

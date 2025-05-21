@@ -1,0 +1,8 @@
+<apex:page standardController="Account" recordSetVar="accts" lightningStylesheets="true">
+    <apex:form >
+    	<apex:selectList value="{!filterId}" size="1">
+        	<apex:selectOptions value="{!listViewOptions}">
+            </apex:selectOptions>
+        </apex:selectList>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,25 @@
+<apex:page controller="EmailTemplateLookupController" showHeader="false" standardStylesheets="true">
+    <script>
+    // Funzione per impostare il valore del template selezionato nella prima pagina
+    function selectTemplate(templateName) {
+        // Ottieni il riferimento alla finestra padre
+        var parentWindow = window.opener;
+        // Richiama la funzione definita nella prima pagina per impostare il valore dell'input text
+        parentWindow.setInputValue(templateName);
+        // Chiudi la finestra corrente
+        window.close();
+    }
+    </script>
+    
+    <!-- Tabella per visualizzare gli EmailTemplate -->
+    <apex:pageBlock title="Email Template List">
+    	<apex:pageBlockTable value="{!EmailTemplates}" var="template">
+        	<!-- Mostra il nome e la descrizione di ciascun EmailTemplate -->
+            <apex:column >
+                <a href="#" onclick="selectTemplate('{!template.Name}'); return false;">{!template.Name}</a>
+            </apex:column>
+            <apex:column value="{!template.TemplateType}"/>
+            <apex:column value="{!template.Description}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

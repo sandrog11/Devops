@@ -1,0 +1,10 @@
+<aura:component >
+    <aura:attribute name="MsgFromNotifier" type="String"/>
+    
+    <aura:handler name="cmpEvent" event="c:ComponentEventColor" action="{!c.handleComponentEvent}"/>
+    <h1>Hai selezionato il tasto</h1>
+    <p>{!v.MsgFromNotifier}</p>
+    <hr/>
+    
+    <c:ChildCmpColor/>
+</aura:component>

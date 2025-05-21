@@ -1,0 +1,23 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="RetrievePositionOpen" >
+    
+    <aura:attribute name="positionList" type="Position__c[]"/>
+    <aura:attribute name="showdetail" type="boolean" default="false"/>
+    <aura:attribute name="positionId" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="slds-align_absolute-center" style="height:5rem">
+        <h1 style="font-size:26px;"><b>Elenco Positions Aperte</b></h1></div>
+    <lightning:card>
+            <aura:if isTrue="{!(!v.showdetail)}">
+                <aura:iteration items="{!v.positionList}" var="pos">
+                    <p style="margin-left:20px;text-align:center;font-size:20px"><lightning:button variant="base" label="{!pos.Name}" value="{!pos.Id}" onclick="{!c.showDetails}"/>
+                    <lightning:helptext style="font-size:20px" content="Click the name to see position's details"/></p>
+                </aura:iteration>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.showdetail}">
+                <c:PositionDetails positionId="{!v.positionId}"/> <br/>
+                <p style="margin-top:10px; text-align:center"><lightning:button label="Indietro" variant="brand" onclick="{!c.goback}"/></p>
+            </aura:if>
+        </lightning:card>
+</aura:component>

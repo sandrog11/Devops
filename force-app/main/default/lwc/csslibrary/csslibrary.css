@@ -1,0 +1,18 @@
+h1 {
+    color: blue;
+    font-size: larger;
+    font-weight: bolder;
+}
+p{
+    color: blueviolet;
+    font-size: medium;
+    font-family: 'Courier New', Courier, monospace;
+}
+.button{
+    padding: 10px;
+}
+.center{
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+  }

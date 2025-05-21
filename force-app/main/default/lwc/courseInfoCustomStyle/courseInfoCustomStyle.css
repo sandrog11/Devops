@@ -1,0 +1,21 @@
+.tablecls {
+    width: 100%;
+    border-color: brown;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-collapse: collapse;
+}
+.tablecls td,
+.tablecls th{
+    border: 1px solid black;
+    padding: 8px;
+}
+.tablecls th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: darkturquoise;
+    color: red;
+}
+.tablecls tr:hover{
+    background-color: azure;
+}

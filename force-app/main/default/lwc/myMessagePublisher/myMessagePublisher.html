@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Message publisher channel LWC">
+        <div>
+            <template for:each={messages} for:item="message">
+                <div key={message.id}>
+                    {message.from} >> {message.value}
+                </div>
+            </template>
+        </div>
+        <div>
+            <lightning-layout>
+                <lightning-layout-item size="9" class="slds-m-right_medium">
+                    <lightning-input type="text" variant="label-hidden"></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="3" class="slds-m-right_medium">
+                    <lightning-button label="Send" variant="brand" onclick={sendHandler}>
+                    </lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>

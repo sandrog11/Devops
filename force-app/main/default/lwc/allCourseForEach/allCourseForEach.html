@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="AllCourseIterator">
+        <div class="slds-box">
+            <ul>
+                <template for:each={allCourseDetails} for:item="course">
+                    <li key={course.courseName}>
+                        This {course.courseName} will be completed within {course.courseDuration}
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </lightning-card>
+</template>
